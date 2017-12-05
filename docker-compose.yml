@@ -1,0 +1,12 @@
+version: "2"
+services:
+  node:
+    build: .
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/home/node/app
+    expose:
+      - "3000"
+    command: "node app.js"
