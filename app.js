@@ -45,4 +45,5 @@ router.get('/api/line', async (ctx, next) => {
     })
 })
 
+console.log('server start in localhost:3000')
 app.listen(3000);
