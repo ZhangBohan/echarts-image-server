@@ -10,7 +10,7 @@ app
 .use(router.allowedMethods());
 
 
-router.get('/', async (ctx, next) => {
+router.get('/api', async (ctx, next) => {
     console.log('query:', ctx.query);
     let option = JSON.parse(ctx.query.option)
     let buffer = await node_echarts({
@@ -20,12 +20,12 @@ router.get('/', async (ctx, next) => {
     ctx.body = buffer
 })
 
-router.get('/line', async (ctx, next) => {
+router.get('/api/line', async (ctx, next) => {
     console.log('line:', ctx.query);
     let title = ctx.query.title || ''
     let data = JSON.parse(ctx.query.data)
-    let xData = data.map(item => item.x)
-    let yData = data.map(item => item.y)
+    let xData = data[0]
+    let yData = data.slice(1)
     let option = {
         title: {
             text: title
@@ -37,12 +37,7 @@ router.get('/line', async (ctx, next) => {
         yAxis: {
             type: 'value'
         },
-        series: [
-            {
-                type:'line',
-                data:yData
-            }
-        ]
+        series: yData.map(lineData => ({type: 'line', data: lineData}))
     }
     ctx.type = 'image/png'
     ctx.body = await node_echarts({

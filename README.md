@@ -1,0 +1,25 @@
+# ECharts image server
+
+ECharts图表接口，通过URL直接返回图像，方便发送邮件或机器人等
+
+## API
+
+### 自定义样式
+```
+GET http://echarts.pipelinecraft.com/api?option={"title":{"text":"ECharts%20入门示例"},"tooltip":{},"legend":{"data":["销量"]},"xAxis":{"data":["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]},"yAxis":{},"series":[{"name":"销量","type":"bar","data":[5,20,36,10,10,20]}]}
+```
+返回：
+
+![](./public/api.png)
+
+其中option为ECharts表中的数据
+
+### 折线图测试
+```
+GET http://echarts.pipelinecraft.com/api/line?title=折线图测试&data=[["周一", "周二", "周三", "周四"], [10, 20, 30, 10], [50, 20, 60, 20]]
+```
+返回：
+
+![](./public/line.png)
+
+其中data表示数据，第一行为标题，后面为数据
