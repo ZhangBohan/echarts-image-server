@@ -23,3 +23,14 @@ GET http://echarts.pipelinecraft.com/api/line?title=折线图测试&data=[["周�
 ![](./public/line.png)
 
 其中data表示数据，第一行为标题，后面为数据
+
+
+### 饼图测试
+```
+GET http://echarts.pipelinecraft.com/api/pie?title=饼图测试&data=[{"value":335,"name":"直接访问"},{"value":310,"name":"邮件营销"},{"value":234,"name":"联盟广告"},{"value":135,"name":"视频广告"},{"value":1548,"name":"搜索引擎"}]
+```
+返回：
+
+![](./public/pie.png)
+
+其中data表示数据

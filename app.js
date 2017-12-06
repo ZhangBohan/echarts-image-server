@@ -45,5 +45,43 @@ router.get('/api/line', async (ctx, next) => {
     })
 })
 
+router.get('/api/pie', async (ctx, next) => {
+    console.log('pie:', ctx.query);
+    let title = ctx.query.title || ''
+    let data = JSON.parse(ctx.query.data)
+    let sum = 0
+    data.forEach(item => sum += item.value)
+    data.map(item => item.name = `${item.name}(${new Number(item.value / sum).toFixed(2) * 100} %)`)
+    let names = []
+    data.forEach(item => names.push(item.name))
+    console.log("names:", names, sum)
+
+    let option = {
+        title : {
+            text: title,
+            x: 'center'
+        },
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            data: names
+        },
+        series : [
+            {
+                name: '访问来源',
+                type: 'pie',
+                radius : '55%',
+                center: ['50%', '60%'],
+                data: data
+            }
+        ]
+    }
+
+    ctx.type = 'image/png'
+    ctx.body = await node_echarts({
+        option: option
+    })
+})
+
 console.log('server start in localhost:3000')
 app.listen(3000);
