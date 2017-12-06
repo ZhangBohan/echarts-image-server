@@ -4,9 +4,10 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "canvas": "^1.1.2",
+    "echarts": "^3.8.5",
     "koa": "^2.4.1",
-    "koa-router": "^7.3.0",
-    "node-echarts": "^1.1.2"
+    "koa-router": "^7.3.0"
   },
   "devDependencies": {},
   "scripts": {

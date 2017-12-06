@@ -1,6 +1,6 @@
 const Koa = require('koa');
 const Router = require('koa-router');
-const node_echarts = require('node-echarts');
+const node_echarts = require('./node_echarts.js');
 
 const app = new Koa();
 const router = new Router();
