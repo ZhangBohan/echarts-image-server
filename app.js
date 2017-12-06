@@ -24,20 +24,25 @@ router.get('/api/line', async (ctx, next) => {
     console.log('line:', ctx.query);
     let title = ctx.query.title || ''
     let data = JSON.parse(ctx.query.data)
-    let xData = data[0]
-    let yData = data.slice(1)
+    let names = data.map(item => item.name)
+    let yData = data.map(item => item.value)
     let option = {
         title: {
             text: title
         },
         xAxis: {
             type: 'category',
-            data: xData
+            data: names
         },
         yAxis: {
             type: 'value'
         },
-        series: yData.map(lineData => ({type: 'line', data: lineData}))
+        series: [
+            {
+                type:'line',
+                data: yData
+            }
+        ]
     }
     ctx.type = 'image/png'
     ctx.body = await node_echarts({

@@ -16,7 +16,7 @@ GET http://echarts.pipelinecraft.com/api?option={"title":{"text":"ECharts%20入�
 
 ### 折线图测试
 ```
-GET http://echarts.pipelinecraft.com/api/line?title=折线图测试&data=[["周一", "周二", "周三", "周四"], [10, 20, 30, 10], [50, 20, 60, 20]]
+GET http://echarts.pipelinecraft.com/api/line?title=折线图测试&data=[{"value":335,"name":"直接访问"},{"value":310,"name":"邮件营销"},{"value":234,"name":"联盟广告"},{"value":135,"name":"视频广告"},{"value":1548,"name":"搜索引擎"}]
 ```
 返回：
 
