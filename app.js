@@ -14,7 +14,9 @@ router.get('/api', async (ctx, next) => {
     console.log('query:', ctx.query);
     let option = JSON.parse(ctx.query.option)
     let buffer = await node_echarts({
-        option: option
+        option: option,
+        width: ctx.query.width || 500,
+        height: ctx.query.height || 500
     })
     ctx.type = 'image/png'
     ctx.body = buffer
@@ -46,7 +48,9 @@ router.get('/api/line', async (ctx, next) => {
     }
     ctx.type = 'image/png'
     ctx.body = await node_echarts({
-        option: option
+        option: option,
+        width: ctx.query.width || 500,
+        height: ctx.query.height || 500
     })
 })
 
@@ -84,7 +88,9 @@ router.get('/api/pie', async (ctx, next) => {
 
     ctx.type = 'image/png'
     ctx.body = await node_echarts({
-        option: option
+        option: option,
+        width: ctx.query.width || 500,
+        height: ctx.query.height || 500
     })
 })
 
