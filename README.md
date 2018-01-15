@@ -5,7 +5,7 @@ ECharts图表接口，通过URL直接返回图像，方便发送邮件或机器�
 ## How to run from docker
 
 ```
-docker run -d -p 3000:3000 --name echarts-image-server  bohanzhang/echarts-image-server node app.js
+docker run -d -p 3000:3000 --name echarts-image-server bohanzhang/echarts-image-server node app.js
 ```
 
 ## API
