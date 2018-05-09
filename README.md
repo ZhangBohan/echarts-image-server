@@ -2,7 +2,7 @@
 
 ECharts图表接口，通过URL直接返回图像，方便发送邮件或机器人等
 
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://github.com/ZhangBohan/echarts-image-server)
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/ZhangBohan/echarts-image-server)
 
 ## How to run from docker
 
